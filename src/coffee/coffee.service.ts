@@ -14,6 +14,9 @@ export class CoffeeService {
       where: {
         type,
       },
+      orderBy: {
+        id: 'asc',
+      },
     });
 
     return coffees.map<CoffeeSimpleDto>(
