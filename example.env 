@@ -1,0 +1,7 @@
+# DB
+
+DATABASE_URL="postgresql://postgres:1234@localhost/mvst-coffee-challenge-db"
+
+# Server
+
+PORT=5000

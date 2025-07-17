@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Coffee {
+  id             Int        @id @default(autoincrement())
+  name           String
+  normalizedName String     @unique
+  description    String
+  type           CoffeeType
+  price          Int //prices will be stored as integers in cent format (2.30 € → 230) to avoid decimal-related issues.
+  imageUrl       String     @map("image_url")
+
+  createdAt  DateTime @default(now())
+  modifiedAt DateTime @default(now()) @updatedAt
+
+  @@map("coffees")
+}
+
+enum CoffeeType {
+  ARABIC
+  ROBUSTA
+}
